@@ -1,5 +1,4 @@
 import Cocoa
-import Application
 
 public class AppDelegate: NSObject, NSApplicationDelegate {
     public var window: NSWindow?
@@ -24,7 +23,11 @@ public class ViewController: NSViewController {
     }
 }
 
-class App: Application {
+public class Application {
+    public static func create() -> Application {
+        return Application()
+    }
+
     public func run() {
         let app = NSApplication.shared
         let delegate = AppDelegate()

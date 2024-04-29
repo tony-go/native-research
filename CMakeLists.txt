@@ -27,6 +27,7 @@ find_library(COCOA_LIBRARY Cocoa)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_OSX_DEPLOYMENT_TARGET 13.0)
 
+
 # This function is written in the "cmake/AddSwift.cmake" file
 # It will generate the header file to consume Swift code from C++.
 
@@ -39,13 +40,14 @@ generate_cxx_header_target_from_swift(
 
 # Now we need to create a Library for Swift sources
 
-add_library(swift_lib STATIC App.swift)
+add_library(swift_lib STATIC App.swift App.cc)
 
 # The library requires the Swift header in order to compile, so we create a
 #   dependency between the library and the header target created above.
 
 add_dependencies(swift_lib swift_lib_h)
 target_link_libraries(swift_lib PUBLIC ${COCOA_LIBRARY})
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 # This libraries, and users of this library, will need to find the
 #   generated header.

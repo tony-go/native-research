@@ -21,4 +21,4 @@ jobs:
       run: make
 
     - name: Run
-      run: make run
+      run: make open
