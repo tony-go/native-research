@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.26)
 
-project(EatSwiftFromCPP LANGUAGES CXX Swift)
+project(BasicNativeApp LANGUAGES CXX Swift)
 
 # Check Swift compiler version
 
@@ -28,7 +28,7 @@ add_subdirectory(app)
 
 add_executable(my_app main.cc)
 
-target_link_libraries(my_app PRIVATE swift_lib)
+target_link_libraries(my_app PRIVATE app)
 target_include_directories(my_app PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/app/include")
 
 set_target_properties(my_app PROPERTIES MACOSX_BUNDLE TRUE)
