@@ -1,25 +1,16 @@
 import Cocoa
 
-public class AppDelegate: NSObject, NSApplicationDelegate {
-    public var window: NSWindow?
+import Ui
 
-    public override init() {
-        super.init()
-        let rect = NSMakeRect(0, 0, 480, 300)
-        window = NSWindow(contentRect: rect, styleMask: [.titled, .closable, .resizable], backing: .buffered, defer: false)
-        window?.contentViewController = ViewController()
+public class AppDelegate: NSObject, NSApplicationDelegate {
+    private var window: Window?
+
+    public func setWindow(_ window: Window) {
+        self.window = window
     }
 
     public func applicationDidFinishLaunching(_ aNotification: Notification) {
-        window?.makeKeyAndOrderFront(nil)
-    }
-}
-
-public class ViewController: NSViewController {
-    public override func loadView() {
-        self.view = NSView(frame: NSMakeRect(0, 0, 480, 300))
-        self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor.red.cgColor
+        window?.show()
     }
 }
 
@@ -33,6 +24,11 @@ public class Application {
         let delegate = AppDelegate()
         app.delegate = delegate
         app.run()
+    }
+
+    public func setWindow(_ window: Window) {
+        let delegate = NSApplication.shared.delegate as! AppDelegate
+        delegate.setWindow(window)
     }
 }
 

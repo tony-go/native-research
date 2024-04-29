@@ -18,7 +18,12 @@ add_library(app STATIC App.swift App.cc)
 #   dependency between the library and the header target created above.
 
 add_dependencies(app app_h)
+add_dependencies(app window_h)
+add_dependencies(app window)
+
 target_link_libraries(app PUBLIC ${COCOA_LIBRARY})
+target_link_libraries(app PUBLIC window)
+
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 # This libraries, and users of this library, will need to find the
