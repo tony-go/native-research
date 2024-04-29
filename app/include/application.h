@@ -1,7 +1,7 @@
 #ifndef NATIVE_APPLICATION_H
 #define NATIVE_APPLICATION_H
 
-#include "swift-lib.h"
+#include "app-swift.h"
 
 class Application {
 public:

@@ -25,10 +25,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_OSX_DEPLOYMENT_TARGET 13.0)
 
 add_subdirectory(app)
+add_subdirectory(window)
 
 add_executable(my_app main.cc)
 
 target_link_libraries(my_app PRIVATE app)
 target_include_directories(my_app PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/app/include")
+
+target_link_libraries(my_app PRIVATE window)
+target_include_directories(my_app PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/window/include")
 
 set_target_properties(my_app PROPERTIES MACOSX_BUNDLE TRUE)
