@@ -17,9 +17,8 @@ add_library(app STATIC App.swift App.cc)
 # The library requires the Swift header in order to compile, so we create a
 #   dependency between the library and the header target created above.
 
+add_dependencies(app_h window)
 add_dependencies(app app_h)
-add_dependencies(app window_h)
-add_dependencies(app window)
 
 target_link_libraries(app PUBLIC ${COCOA_LIBRARY})
 target_link_libraries(app PUBLIC window)
