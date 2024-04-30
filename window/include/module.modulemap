@@ -1,0 +1,4 @@
+module Ui {
+  header "window.h"
+  export *
+}

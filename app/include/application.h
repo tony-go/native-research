@@ -1,11 +1,13 @@
 #ifndef NATIVE_APPLICATION_H
 #define NATIVE_APPLICATION_H
 
-#include "swift-lib.h"
+#include "app-swift.h"
+#include "window-swift.h"
 
 class Application {
 public:
   Application() : internal(Native::Application::create()) {}
+  void setWindow(Ui::Window window); // TODO: use reference
   void run();
 
 private:
