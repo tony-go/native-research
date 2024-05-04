@@ -4,6 +4,6 @@
 class Application {
 public:
   void run();
-}
+};
 
 #endif // NATIVE_APPLICATION_H
